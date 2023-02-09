@@ -7,8 +7,21 @@ RSpec.describe 'Articles search' do
   context 'without search' do
     it 'returns http success' do
       visit articles_path
+
       expect(page).to have_content(article1.title)
                   .and have_content(article2.title)
+    end
+  end
+
+  context 'searching by a title' do
+    it 'shows filtered result' do
+      visit articles_path
+
+      fill_in 'query', with: 'What is a'
+      click_on 'Search'
+
+      expect(page).to have_content(article1.title)
+                  .and have_no_content(article2.title)
     end
   end
 end

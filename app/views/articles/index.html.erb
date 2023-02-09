@@ -1,9 +1,10 @@
 <h1>Articles</h1>
 
+<%= form_with(url: articles_path, method: :get, data: { turbo_frame: 'articles' }) do |f| %>
+  <%= f.text_field :query, placeholder: 'Search by article title', value: params[:query] %>
+  <%= f.submit 'Search' %>
+<% end %>
+
 <ul>
-  <% @articles.each do |article| %>
-    <li>
-      <%= article.title %>
-    </li>
-  <% end %>
+  <%= render 'articles', articles: @articles %>
 </ul>
