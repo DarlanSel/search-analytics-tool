@@ -5,6 +5,4 @@
   <%= f.submit 'Search', hidden: true %>
 <% end %>
 
-<ul>
-  <%= render 'articles', articles: @articles %>
-</ul>
+<%= render 'articles', articles: @articles, analytics: @analytics %>
