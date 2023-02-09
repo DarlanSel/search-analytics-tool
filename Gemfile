@@ -21,6 +21,12 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.0'
 end
 
+group :test do
+  gem 'capybara'
+  gem 'factory_bot_rails'
+  gem 'selenium-webdriver', require: false
+end
+
 group :development do
   gem 'web-console'
 end
