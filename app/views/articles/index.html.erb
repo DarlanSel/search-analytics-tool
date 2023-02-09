@@ -1,8 +1,8 @@
 <h1>Articles</h1>
 
-<%= form_with(url: articles_path, method: :get, data: { turbo_frame: 'articles' }) do |f| %>
-  <%= f.text_field :query, placeholder: 'Search by article title', value: params[:query] %>
-  <%= f.submit 'Search' %>
+<%= form_with(url: articles_path, method: :get, data: { turbo_frame: 'articles', controller: 'articles-search-form', turbo_action: 'advance' }) do |f| %>
+  <%= f.text_field :query, placeholder: 'Search by article title', value: params[:query], data: { action: 'input->articles-search-form#search' } %>
+  <%= f.submit 'Search', hidden: true %>
 <% end %>
 
 <ul>

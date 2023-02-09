@@ -18,7 +18,6 @@ RSpec.describe 'Articles search' do
       visit articles_path
 
       fill_in 'query', with: 'What is a'
-      click_on 'Search'
 
       expect(page).to have_content(article1.title)
                   .and have_no_content(article2.title)
