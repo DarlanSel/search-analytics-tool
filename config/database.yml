@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: search_analytics_tool_development
+
+test:
+  <<: *default
+  database: search_analytics_tool_test
+
+production:
+  <<: *default
+  database: search_analytics_tool_production
+  username: search_analytics_tool
+  password: <%= ENV["SEARCH_ANALYTICS_TOOL_DATABASE_PASSWORD"] %>
